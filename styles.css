@@ -1,0 +1,196 @@
+body,
+html {
+    background-image: url("http://www.clipartkid.com/images/707/twinkling-stars-animated-gif-twinkle-stars-gif-twinkle-xCsqAI-clipart.jpg");
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 500px 300px;
+    padding: 20px;
+    color: white;
+}
+
+body {
+    
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 3px 3px 10px yellow;
+    animation: wobble 5s infinite;
+    margin-bottom: 40px;
+}
+
+
+body::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: gray;
+}
+
+::-webkit-scrollbar-thumb {
+    background: orange;
+    border: 3px solid green;
+    border-bottom-color: rgba(0,0,0,0.8);
+    border-right-color: rgba(0,0,0,0.8);
+    border-top-color: rgba(255,255,255,0.6);
+    border-left-color: rgba(255,255,255,0.6);
+}
+
+
+#imgs {
+    text-align: center;
+}
+
+@keyframes wobble {
+    0% {
+        margin-left: 0;
+    }
+    25% {
+        margin-left: 30px;
+    }
+    50% {
+        margin-left: 0;
+    }
+    75% {
+        margin-left: -30px;
+    }
+    100% {
+        margin-left: 0
+    }
+}
+
+#aboot {
+    width: 80%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+#aboot h3 {
+    text-align: center;
+    color: orange;
+}
+
+ul li {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+ul li:before {
+    content: '';
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    margin-right: 10px;
+    background-image: url("http://dinostomatopie.com/images/tball.gif");
+    background-repeat: no-repeat
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+}
+
+footer hr {
+    width: 80%;
+    max-width: 400px;
+    border-color: greenyellow;
+    animation: colors 5s infinite;
+    border-width: 3px;
+    margin-bottom: 10px;
+}
+
+@keyframes colors {
+    0% {
+        border-color: greenyellow;
+        color: greenyellow;
+    }
+    25% {
+        border-color: mediumvioletred;
+        color: mediumvioletred;
+    }
+    50% {
+        border-color: yellow;
+        color: yellow;
+    }
+    75% {
+        border-color: deeppink;
+        color: deeppink;
+    }
+    100% {
+        border-color: paleturquoise;
+        color: paleturquoise;
+    }
+}
+
+#bios {
+    width: 80%;
+    max-width: 500px;
+    margin: 50 auto;
+}
+
+#bios h4 {
+    font-size: 20px;
+    margin: 0;
+}
+
+#efe h4 {
+    color: #ff00ff;
+}
+
+#ram h4 {
+    color: #00ff00;
+}
+
+#room {
+    text-align: center;
+}
+
+#room h4 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+#room img {
+    width: 300px;
+}
+
+#room h4:after{
+    content: '';
+    display: inline-block;
+    background-image: url("http://www.instanet.com/icons/new01.gif");
+    height: 30px;
+    width: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: rotato 5s infinite;
+    margin-left: -8px;
+}
+
+@keyframes rotato {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+footer a {
+    color: red;
+}
+
+footer a:hover {
+    color: crimson;
+}
