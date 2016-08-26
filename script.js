@@ -11,7 +11,8 @@ window.addEventListener("load", function() {
 			var bgctx = bgcanvas.getContext("2d");
 			bgctx.drawImage(bgimage, 0, 0, 500, 300);
 			bgctx.fillStyle = "#fff";
-			bgctx.fillRect(0, 150, 450, 150);
+			var scale = counter / 200;
+			bgctx.fillRect(0, 300 * scale, 500, 300 - (300 * scale));
 			document.body.style.backgroundImage = "url(" + bgcanvas.toDataURL() + ")";
 			bgcounter++;
 		}, 40);
