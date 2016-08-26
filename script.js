@@ -11,7 +11,7 @@ window.addEventListener("load", function() {
 			var bgctx = bgcanvas.getContext("2d");
 			bgctx.drawImage(bgimage, 0, 0, 500, 300);
 			bgctx.fillStyle = "#fff";
-			var scale = counter / 200;
+			var scale = bgcounter / 200;
 			bgctx.fillRect(0, 300 * scale, 500, 300 - (300 * scale));
 			document.body.style.backgroundImage = "url(" + bgcanvas.toDataURL() + ")";
 			bgcounter++;
