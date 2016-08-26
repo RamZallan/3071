@@ -7,10 +7,10 @@
         <script src="script.js"></script>
 
     <body>
-        <div id="toolbar">
-            <img class="logo" src="toolbarlogo.png" />
-            <input type="text" id="search" placeholder="QuickZap search..." />
-            <a href="#!" class="button" onclick="aolSearch(document.getElementById('search').value); return false">Go!!</a>
+        <div id="toolbar" oncontextmenu="return false">
+            <img class="logo" src="toolbarlogo.png" draggable="false" />
+            <input type="text" id="search" placeholder="QuickZap search..." onkeyup="aolSearchEnter(event, document.getElementById('search').value)" />
+            <a href="#!" class="button" onclick="aolSearch(document.getElementById('search').value); return false" draggable="false">Go!!</a>
             <select onchange="menuClick(this)">
                 <option disabled selected>Bookmarks</option>
                 <option value="http://www.yahoo.com">Yahoo</option>
@@ -29,6 +29,12 @@
                 <option value="http://mail.aol.com">Spam (1)</option>
                 <option value="http://mail.aol.com">My Account</option>
                 <option value="http://mail.aol.com">Trash</option>
+            </select>
+            <select onchange="menuButtonClick(this)" id="menu">
+                <option disabled selected>Menu</option>
+                <option value="about">About QZ</option>
+                <option value="uninstall">Uninstall</option>
+                <option value="exit">Exit Toolbar</option>
             </select>
         </div>
         <div id="content">
