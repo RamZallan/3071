@@ -4,14 +4,105 @@ html {
     background-position: center;
     background-repeat: repeat;
     background-size: 500px 300px;
-    padding: 20px;
     color: white;
 }
 
+* {
+
+}
+
 body {
-    
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: hidden;
+    padding-top: 32px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#toolbar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-image: url("toolbarbg.png");
+    background-color: #ebe7d2;
+    height: 29px;
+    width: 100%;
+    padding: 3px 3px 0px 3px;
+}
+#toolbar .logo {
+    float: left;
+    margin: 0px 6px 0px 2px;
+}
+#toolbar * {
+    float: left;
+}
+input[type='text'] {
+    float: left;
+    height: 24px;
+    border: 2px solid #BCB8A9;
+    border-bottom-color: #DBD6C5;
+    border-right-color: #DBD6C5;
+    border-style: groove;
+    outline: none;
+    padding: 0px 4px;
+    font-family: courier, sans-serif;
+}
+#search {
+    width: 200px;
+    margin: 0px 6px 0px 2px;
+}
+a.button {
+    float:left;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    background-color: rgba(127, 127, 127, 0.1);
+    text-decoration: none;
+    color: #000;
+    border: 2px solid #777;
+    border-top-color: #ccc;
+    border-left-color: #ccc;
+    border-style: groove;
+    border-radius: 5px;
+    font-family: courier, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0px 6px;
+}
+a.button:hover {
+    background-color: rgba(200, 200, 200, 0.1);
+}
+a.button:active {
+    background-color: rgba(127, 127, 127, 0.2);
+    border-color: #777 #ccc #ccc #777;
+}
+#toolbar select {
+    height: 24px;
+    width: 100px;
+    line-height: 24px;
+    background: none;
+    border: none;
+    outline: none;
+    margin: 0px 2px 0px 6px;
+    font-family: courier;
+}
+#toolbar select option {
+    background-color: #C2BFC0;
+    color: #000;
+}
+#toolbar p {
+    display: inline-block;
+    margin: 1px 2px 0px 2px;
+    color: #000;
+}
+#toolbar select#mail {
+    width: 89px;
+}
+
+#content {
+    width: 100%;
+    height: 100%;
+    margin-top: 32px;
+    overflow: auto;
 }
 
 h1 {
@@ -22,16 +113,16 @@ h1 {
 }
 
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
     width: 16px;
 }
 
-::-webkit-scrollbar-track {
-    background: gray;
+*::-webkit-scrollbar-track {
+    background: #E3E3E5;
 }
 
-::-webkit-scrollbar-thumb {
-    background: orange;
+*::-webkit-scrollbar-thumb {
+    background: #C3C7CB;
     border: 3px solid green;
     border-bottom-color: rgba(0,0,0,0.8);
     border-right-color: rgba(0,0,0,0.8);
@@ -138,10 +229,12 @@ footer hr {
 
 #efe h4 {
     color: #ff00ff;
+    font-family: courier, sans-serif;
 }
 
 #ram h4 {
     color: #00ff00;
+    font-family: courier, sans-serif;
 }
 
 #room {

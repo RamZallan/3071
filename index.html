@@ -1,40 +1,67 @@
-<html>
+    <html>
 
-<head>
-    <meta charset="UTF-8">
-    <title>NRH 3071</title>
-    <link rel="stylesheet" href="styles.css"> </head>
+    <head>
+        <meta charset="UTF-8">
+        <title>NRH 3071</title>
+        <link rel="stylesheet" href="styles.css"> </head>
+        <script src="script.js"></script>
 
-<body>
-    <h1>Welcome to our humble abode on the World Wide Web!</h1>
-    <div id="aboot">
-        <h3>Between the two of us, our skills include:</h3>
-        <ul>
-            <li>Web development</li>
-            <li>Being cool dudes</li>
-            <li>Liking long walks on the beach</li>
-        </ul>
-    </div>
-    <div id="bios">
-        <div id="efe">
-            <h4>Efe Ozturkoglu</h4>
-            <p>A web dev from Turkey, Efe sprung from the womb in 1997 at the tender age of 0. He spends his Saturday nights watching new flicks from Blockbuster or playing Mario on his Nintendo Entertainment System. When he jams out, his favorite tunage is <em>"White and Nerdy"</em> on the iTunes&reg;. He has 17 friends on MySpace not counting his mother and Tom.</p>
+    <body>
+        <div id="toolbar">
+            <img class="logo" src="toolbarlogo.png" />
+            <input type="text" id="search" placeholder="QuickZap search..." />
+            <a href="#!" class="button" onclick="aolSearch(document.getElementById('search').value); return false">Go!!</a>
+            <select onchange="menuClick(this)">
+                <option disabled selected>Bookmarks</option>
+                <option value="http://www.yahoo.com">Yahoo</option>
+                <option value="http://www.aim.com">AIM</option>
+                <option value="http://zone.msn.com">MSN Games</option>
+                <option value="http://isp.netscape.com">Netscape</option>
+                <option value="http://www.oocities.org/area51/5072/">Geocities</option>
+                <option value="http://www.kli.org">Klingon</option>
+            </select>
+            <p>|</p>
+            <select onchange="menuClick(this)" id="mail">
+                <option disabled selected>Mail (7)</option>
+                <option value="http://mail.aol.com">Inbox (6)</option>
+                <option value="http://mail.aol.com">Sent</option>
+                <option value="http://mail.aol.com">Untitled Folder</option>
+                <option value="http://mail.aol.com">Spam (1)</option>
+                <option value="http://mail.aol.com">My Account</option>
+                <option value="http://mail.aol.com">Trash</option>
+            </select>
         </div>
-        <div id="ram">
-            <h4>Ram Zallan</h4>
-            <p>A Los Angeles native, Ram spends his free time hanging-ten, surfing those gnarly Cali waves. The only letters he knows in ASL are "L - I - T". His most prized possesion is his mint-condition 1996 WM-GX622 Sony Cassette Walkman.</p>
+        <div id="content">
+            <h1>Welcome to our humble abode on the World Wide Web!</h1>
+            <div id="aboot">
+                <h3>Between the two of us, our skills include:</h3>
+                <ul>
+                    <li>Web development</li>
+                    <li>Being cool dudes</li>
+                    <li>Liking long walks on the beach</li>
+                </ul>
+            </div>
+            <div id="bios">
+                <div id="efe">
+                    <h4>Efe Ozturkoglu</h4>
+                    <p>A web dev from Turkey, Efe sprung from the womb in 1997 at the tender age of 0. He spends his Saturday nights watching new flicks from Blockbuster or playing Mario on his Nintendo Entertainment System. When he jams out, his favorite tunage is <em>"White and Nerdy"</em> on the iTunes&reg;. He has 17 friends on MySpace not counting his mother and Tom.</p>
+                </div>
+                <div id="ram">
+                    <h4>Ram Zallan</h4>
+                    <p>A Los Angeles native, Ram spends his free time hanging-ten, surfing those gnarly Cali waves. The only letters he knows in ASL are "L - I - T". His most prized possesion is his mint-condition 1996 WM-GX622 Sony Cassette Walkman.</p>
+                </div>
+            </div>
+            <div id="room">
+                <h4>Our Room!</h4>
+                <img src="room.gif">
+            </div>
+            <footer>
+                <hr> <img src="http://trendsinweb.design/1996/images/netscape.gif"> <img src="http://trendsinweb.design/1996/images/notepad.gif"> <img src="http://trendsinweb.design/1996/images/ie.gif">
+                <p>Contact the Webmasters via electronic-mail: <a href="http://ramzallan.me">Ram Zallan</a> and <a href="http://efehq.com">Efe Ozturkoglu</a>.</p>
+            </footer>
+            <audio loop autoplay>
+                <source src="darude.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio>
         </div>
-    </div>
-    <div id="room">
-        <h4>Our Room!</h4>
-        <img src="room.gif">
-    </div>
-    <footer>
-        <hr> <img src="http://trendsinweb.design/1996/images/netscape.gif"> <img src="http://trendsinweb.design/1996/images/notepad.gif"> <img src="http://trendsinweb.design/1996/images/ie.gif">
-        <p>Contact the Webmasters via electronic-mail: <a href="http://ramzallan.me">Ram Zallan</a> and <a href="http://efehq.com">Efe Ozturkoglu</a>.</p>
-    </footer>
-    <audio loop autoplay>
-        <source src="darude.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio>
-</body>
+    </body>
 
-</html>
+    </html>
