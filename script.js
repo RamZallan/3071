@@ -14,12 +14,12 @@ window.addEventListener("load", function() {
 			var scale = bgcounter / 200;
 			bgctx.fillRect(0, 300 * scale, 500, 300 - (300 * scale));
 			document.body.style.backgroundImage = "url(" + bgcanvas.toDataURL() + ")";
-			bgcounter++;
-			if (counter > 200) {
+			bgcounter += 5;
+			if (bgcounter > 200) {
 				clearInterval(bginterval);
 				document.body.style.backgroundImage = "url('http://www.clipartkid.com/images/707/twinkling-stars-animated-gif-twinkle-stars-gif-twinkle-xCsqAI-clipart.jpg')";
 			}
-		}, 40);
+		}, 200);
 	};
 	bgimage.src = "background.gif";
 });
