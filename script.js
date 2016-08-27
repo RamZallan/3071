@@ -4,7 +4,7 @@ window.addEventListener("load", function() {
 	iframe = document.getElementById("mininetscape");
 	bgimage = new Image();
 	bgcounter = 0;
-	bgimage.onload = function() {
+	bgimage.onload = function() { // Slow loading background
 		bginterval = setInterval(function() {
 			var bgcanvas = document.createElement("canvas");
 			bgcanvas.width = "500";
@@ -26,7 +26,7 @@ window.addEventListener("load", function() {
 	};
 	bgimage.src = "background.gif";
 });
-function browseTo(place, newTab) {
+function browseTo(place, newTab) { // newTab = true, will open in new tab, otherwise in an iframe
 	if (newTab) {
 		window.open(place);
 	}
@@ -43,14 +43,14 @@ function aolSearchEnter(event, query) {
 		aolSearch(query);
 	}
 }
-function menuClick(self) {
+function menuClick(self) { // FOR THE BOOKMARKS OR MAIL MENUS
 	var x = self.selectedIndex;
 	self.selectedIndex = 0;
 	var val = self.children[x].value;
 	var newTab = val.substr(val.length - 1) == "#";
 	browseTo(self.children[x].value, newTab);
 }
-function menuButtonClick(self) {
+function menuButtonClick(self) { // FOR THE "Menu" MENU BUTTON ON THE RIGHT
 	var x = self.children[self.selectedIndex].value;
 	switch (x) {
 		case "about":
@@ -80,7 +80,7 @@ function hideToolbar() {
 
 trailParticles = [];
 function startMouseTrail() {
-	for (var i = 0; i < 150; i++) {
+	for (var i = 0; i < trailConfig.particleQuantity; i++) {
 		var temp = document.createElement("div");
 		temp.className = "mouseTrail";
 		temp.style.top = "50px";
@@ -100,13 +100,13 @@ document.addEventListener("mousemove", function(e) {
 	mouse.y = e.pageY;
 	createParticle(e.pageX, e.pageY);
 });
-function updateMouseTrail() {
+function updateMouseTrail() { // Runs every few frames
 	if (Math.random() < 0.3) createParticle(mouse.x, mouse.y);
 	for (var i = 0; i < trailParticles.length; i++) {
 		updateParticle(trailParticles[i]);
 	}
 }
-function updateParticle(elm) {
+function updateParticle(elm) { // Helper function for updateMouseTrail()
 	var life = Date.now() - elm.lastUsed;
 	elm.style.opacity = 1 - (life / trailConfig.particleLife);
 	var x = parseInt(elm.style.left),
@@ -116,7 +116,7 @@ function updateParticle(elm) {
 	elm.style.left = x + "px";
 	elm.style.top = y + "px";
 }
-function createParticle(x, y) {
+function createParticle(x, y) { // Actually just resets existing particles for performance
 	x++;
 	y++;
 	var created = false;
@@ -133,14 +133,15 @@ function createParticle(x, y) {
 	}
 }
 particleColors = ["#f00", "#0f0", "#00f", "#ff0", "#f0f", "#0ff", "#f80", "#f08", "#8f0", "#0f8", "#80f", "#08f"];
-function particleWomb(x, y, i) {
+function particleWomb(x, y, i) { // Helper function for createParticle()
 	trailParticles[i].style.top = y + "px";
 	trailParticles[i].style.left = x + "px";
 	var color = particleColors[Math.round(Math.random() * particleColors.length)];
 	trailParticles[i].style.backgroundColor = color;
 	trailParticles[i].lastUsed = Date.now();
 }
-trailConfig = {
+trailConfig = { // Options
 	particleLife: 1000,
-	particleSpeed: 8
+	particleSpeed: 8,
+	particleQuantity: 150
 }
