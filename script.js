@@ -1,6 +1,7 @@
 window.addEventListener("load", function() {
 	toolbar = document.getElementById("toolbar");
 	content = document.getElementById("content");
+	iframe = document.getElementById("mininetscape");
 	bgimage = new Image();
 	bgcounter = 0;
 	bgimage.onload = function() {
@@ -20,11 +21,22 @@ window.addEventListener("load", function() {
 				document.body.style.backgroundImage = "url('http://www.clipartkid.com/images/707/twinkling-stars-animated-gif-twinkle-stars-gif-twinkle-xCsqAI-clipart.jpg')";
 			}
 		}, 200);
+
+		startMouseTrail();
 	};
 	bgimage.src = "background.gif";
 });
+function browseTo(place, newTab) {
+	if (newTab) {
+		window.open(place);
+	}
+	else {
+		iframe.src = place;
+		iframe.style.display = "block";
+	}
+}
 function aolSearch(query) {
-	window.location = "http://search.aol.com/aol/search?s_it=sb-top&v_t=na&q=" + encodeURIComponent(query);
+	browseTo("http://search.aol.com/aol/search?s_it=sb-top&v_t=na&q=" + encodeURIComponent(query), false);
 }
 function aolSearchEnter(event, query) {
 	if (event.keyCode == 13) {
@@ -34,7 +46,9 @@ function aolSearchEnter(event, query) {
 function menuClick(self) {
 	var x = self.selectedIndex;
 	self.selectedIndex = 0;
-	window.location = self.children[x].value;
+	var val = self.children[x].value;
+	var newTab = val.substr(val.length - 1) == "#";
+	browseTo(self.children[x].value, newTab);
 }
 function menuButtonClick(self) {
 	var x = self.children[self.selectedIndex].value;
@@ -62,4 +76,71 @@ function showToolbar() {
 function hideToolbar() {
 	toolbar.style.display = "none";
 	content.style.marginTop = "0px";
+}
+
+trailParticles = [];
+function startMouseTrail() {
+	for (var i = 0; i < 150; i++) {
+		var temp = document.createElement("div");
+		temp.className = "mouseTrail";
+		temp.style.top = "50px";
+		temp.active = false;
+		temp.lastUsed = 0;
+		trailParticles.push(temp);
+		document.body.appendChild(temp);
+	}
+	trailInterval = setInterval(updateMouseTrail, 34);
+}
+mouse = {
+	x: 300,
+	y: 300
+};
+document.addEventListener("mousemove", function(e) {
+	mouse.x = e.pageX;
+	mouse.y = e.pageY;
+	createParticle(e.pageX, e.pageY);
+});
+function updateMouseTrail() {
+	if (Math.random() < 0.3) createParticle(mouse.x, mouse.y);
+	for (var i = 0; i < trailParticles.length; i++) {
+		updateParticle(trailParticles[i]);
+	}
+}
+function updateParticle(elm) {
+	var life = Date.now() - elm.lastUsed;
+	elm.style.opacity = 1 - (life / trailConfig.particleLife);
+	var x = parseInt(elm.style.left),
+		y = parseInt(elm.style.top);
+	x += Math.round(Math.random() * trailConfig.particleSpeed);
+	y += Math.round(Math.random() * trailConfig.particleSpeed);
+	elm.style.left = x + "px";
+	elm.style.top = y + "px";
+}
+function createParticle(x, y) {
+	x++;
+	y++;
+	var created = false;
+	var oldest = 0;
+	for (var i = 0; i < trailParticles.length; i++) {
+		var life = Date.now() - trailParticles[i].lastUsed;
+		if (life > Date.now() - trailParticles[oldest].lastUsed) oldest = i;
+	}
+			particleWomb(x, y, oldest);
+			created = true;
+	if (!created) {
+		var rand = Math.floor(Math.random() * trailParticles.length);
+		particleWomb(x, y, rand);
+	}
+}
+particleColors = ["#f00", "#0f0", "#00f", "#ff0", "#f0f", "#0ff", "#f80", "#f08", "#8f0", "#0f8", "#80f", "#08f"];
+function particleWomb(x, y, i) {
+	trailParticles[i].style.top = y + "px";
+	trailParticles[i].style.left = x + "px";
+	var color = particleColors[Math.round(Math.random() * particleColors.length)];
+	trailParticles[i].style.backgroundColor = color;
+	trailParticles[i].lastUsed = Date.now();
+}
+trailConfig = {
+	particleLife: 1000,
+	particleSpeed: 8
 }
