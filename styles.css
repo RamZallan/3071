@@ -293,6 +293,18 @@ footer hr {
     width: 300px;
 }
 
+#room h4:after{
+    content: '';
+    display: inline-block;
+    background-image: url("http://www.instanet.com/icons/new01.gif");
+    height: 30px;
+    width: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: rotato 5s infinite;
+    margin-left: -8px;
+}
+
 @keyframes rotato {
     0% {
         transform: rotate(0deg);
